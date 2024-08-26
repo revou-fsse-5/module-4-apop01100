@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 export const description = (step: number): string => {
     switch (step) {
       case 0:

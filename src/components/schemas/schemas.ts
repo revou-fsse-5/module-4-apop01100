@@ -37,8 +37,37 @@ const stepThreeSchema = Yup.object({
         .required('Please enter your password.')
 })
 
+const addSchema = Yup.object({
+    name: Yup.string()
+        .required('Please enter the name.'),
+    description: Yup.string()
+        .required('Please enter the description.')
+})
+
+const updateSchema = Yup.object({
+    name: Yup.string()
+        .required('Please enter new name.'),
+    description: Yup.string()
+        .required('Please enter new description.')
+})
+
+const loginSchema = Yup.object({
+    username: Yup.string()
+        .required('Please enter your username.'),
+    password: Yup.string()
+        .min(8, 'Password must be at least 8 characters')
+        .matches(/[a-z]/, 'Password must contain a lowercase letter.')
+        .matches(/[A-Z]/, 'Password must contain an uppercase letter.')
+        .matches(/[0-9]/, 'Password must contain a number.')
+        .matches(/[!@#$%^&*]/, 'Password must contain a special character.')
+        .required('Please enter your password.')
+})
+
 export {
     stepOneSchema,
     stepTwoSchema,
-    stepThreeSchema
+    stepThreeSchema,
+    addSchema,
+    updateSchema,
+    loginSchema
 }
